@@ -1,5 +1,5 @@
 {
-    "name": "Spring Boot GAD System",
+    "name": "GAD Classification System - Backend",
     "image": "mcr.microsoft.com/devcontainers/java:21",
     "features": {
         "ghcr.io/devcontainers/features/java:1": {
@@ -20,7 +20,7 @@
             ]
         }
     },
-    "postCreateCommand": "mvn clean compile",
+    "postCreateCommand": "cd backend && ./mvnw clean compile",
     "mounts": [
         "source=${localWorkspaceFolder}/.m2,target=/root/.m2,type=bind"
     ]
