@@ -1,0 +1,27 @@
+{
+    "name": "Spring Boot GAD System",
+    "image": "mcr.microsoft.com/devcontainers/java:21",
+    "features": {
+        "ghcr.io/devcontainers/features/java:1": {
+            "version": "21",
+            "installMaven": "true"
+        },
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+        "ghcr.io/devcontainers/features/git:1": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "vscjava.vscode-java-pack",
+                "redhat.vscode-xml",
+                "ms-vscode.vscode-json",
+                "ms-python.python",
+                "James-Yu.latex-workshop"
+            ]
+        }
+    },
+    "postCreateCommand": "mvn clean compile",
+    "mounts": [
+        "source=${localWorkspaceFolder}/.m2,target=/root/.m2,type=bind"
+    ]
+}
