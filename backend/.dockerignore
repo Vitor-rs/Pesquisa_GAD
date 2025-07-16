@@ -1,5 +1,0 @@
-# Docker development setup
-.env
-docker/logs/
-target/
-.DS_Store
