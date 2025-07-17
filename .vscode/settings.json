@@ -17,7 +17,19 @@
     // LaTeX Workshop configuration for IFMS_TADS_TCC
     "latex-workshop.latex.autoBuild.run": "onSave",
     "latex-workshop.latex.autoClean.run": "onBuilt",
-    "latex-workshop.latex.outDir": "./IFMS_TADS_TCC/build",
+    "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/IFMS_TADS_TCC/build",
+    "latex-workshop.latex.rootFile.doNotPrompt": true,
+    "latex-workshop.latex.rootFile.useSubFile": false,
+    "latex-workshop.latex.rootFile.indicator": "\\documentclass[]{}",
+    "latex-workshop.latex.search.rootFiles.include": [
+        "**/IFMS_TADS_TCC/src/*.tex"
+    ],
+    "latex-workshop.latex.search.rootFiles.exclude": [
+        "**/build/**",
+        "**/node_modules/**"
+    ],
+    "latex-workshop.latex.recipe.default": "latexmk (IFMS_TADS_TCC)",
+    "latex-workshop.latex.autoBuild.interval": 1000,
     "latex-workshop.latex.clean.subfolder.enabled": true,
     "latex-workshop.latex.clean.fileTypes": [
         "*.aux",
@@ -56,52 +68,71 @@
     "latex-workshop.synctex.path": "synctex",
     "latex-workshop.latex.recipes": [
         {
-            "name": "latexmk 🔃",
+            "name": "latexmk (IFMS_TADS_TCC)",
             "tools": [
-                "latexmk"
+                "latexmk-ifms"
             ]
         },
         {
-            "name": "pdflatex ➞ bibtex ➞ pdflatex × 2",
+            "name": "latexmk (Auto)",
             "tools": [
-                "pdflatex",
-                "bibtex",
-                "pdflatex",
-                "pdflatex"
+                "latexmk-auto"
+            ]
+        },
+        {
+            "name": "pdflatex ➞ bibtex ➞ pdflatex × 2 (IFMS_TADS_TCC)",
+            "tools": [
+                "pdflatex-ifms",
+                "bibtex-ifms",
+                "pdflatex-ifms",
+                "pdflatex-ifms"
             ]
         }
     ],
     "latex-workshop.latex.tools": [
         {
-            "name": "latexmk",
+            "name": "latexmk-ifms",
             "command": "latexmk",
             "args": [
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
                 "-pdf",
-                "-outdir=./IFMS_TADS_TCC/build",
+                "-outdir=%WORKSPACE_FOLDER%/IFMS_TADS_TCC/build",
+                "%WORKSPACE_FOLDER%/IFMS_TADS_TCC/src/Monografia_config.tex"
+            ],
+            "env": {}
+        },
+        {
+            "name": "latexmk-auto",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=%OUTDIR%",
                 "%DOC%"
             ],
             "env": {}
         },
         {
-            "name": "pdflatex",
+            "name": "pdflatex-ifms",
             "command": "pdflatex",
             "args": [
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
-                "-output-directory=./IFMS_TADS_TCC/build",
-                "%DOC%"
+                "-output-directory=%WORKSPACE_FOLDER%/IFMS_TADS_TCC/build",
+                "%WORKSPACE_FOLDER%/IFMS_TADS_TCC/src/Monografia_config.tex"
             ],
             "env": {}
         },
         {
-            "name": "bibtex",
+            "name": "bibtex-ifms",
             "command": "bibtex",
             "args": [
-                "./IFMS_TADS_TCC/build/%DOCFILE%"
+                "%WORKSPACE_FOLDER%/IFMS_TADS_TCC/build/Monografia_config"
             ],
             "env": {}
         }
@@ -113,15 +144,14 @@
         "-pdf",
         "-interaction=nonstopmode", 
         "-file-line-error",
-        "-outdir=./IFMS_TADS_TCC/build"
+        "-outdir=%WORKSPACE_FOLDER%/IFMS_TADS_TCC/build",
+        "%WORKSPACE_FOLDER%/IFMS_TADS_TCC/src/Monografia_config.tex"
     ],
     
     // File associations and nesting
     "files.associations": {
         "*.tex": "latex"
     },
-    "latex-workshop.latex.rootFile.doNotPrompt": true,
-    "latex-workshop.latex.rootFile.useSubFile": false,
     "latex-workshop.message.error.show": true,
     "latex-workshop.message.warning.show": true,
     "latex-workshop.showContextMenu": true,
