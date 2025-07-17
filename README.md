@@ -19,6 +19,17 @@ Para facilitar o desenvolvimento, este projeto está configurado para ser utiliz
 3. Quando solicitado, clique em "Reopen in Container" ou use o comando "Remote-Containers: Reopen in Container" da paleta de comandos (F1)
 4. Aguarde o ambiente ser configurado automaticamente (pode demorar alguns minutos na primeira execução)
 
+#### Para VS Code Remoto (GitHub Codespaces ou Remote SSH):
+
+Se você estiver usando VS Code Remoto (como GitHub Codespaces ou Remote SSH):
+
+1. Abra a paleta de comandos com `F1` ou `Ctrl+Shift+P`
+2. Digite e selecione "Remote-Containers: Rebuild and Reopen in Container"
+3. Se essa opção não estiver disponível, certifique-se de que:
+   - A extensão Remote-Containers esteja instalada
+   - Docker esteja disponível no ambiente remoto
+4. Em alguns ambientes como GitHub Codespaces, você pode precisar clicar no botão "Codespaces" no canto inferior esquerdo e selecionar "Rebuild Container"
+
 ### Opção 2: Instalação Manual
 
 Se preferir não usar DevContainer, instale os seguintes pacotes no seu sistema:
@@ -73,3 +84,26 @@ O template segue a estrutura padrão de TCC conforme normas ABNT:
 - LaTeX Utilities
 - Code Spell Checker
 - Portuguese - Code Spell Checker
+
+## Verificando o Ambiente Atual
+
+Para verificar se você já está dentro de um DevContainer ou não, você pode:
+
+1. **Verificar o indicador visual:**
+   - No VS Code, observe o canto inferior esquerdo. Se você estiver em um container, verá um indicador como "Dev Container: [Nome]"
+
+2. **Verificar via terminal:**
+   - Abra um terminal no VS Code e execute:
+   ```bash
+   echo $REMOTE_CONTAINERS
+   ```
+   - Se retornar algum valor (geralmente "true"), você está em um DevContainer
+   - Se não retornar nada, você não está em um DevContainer
+
+3. **Verificar a disponibilidade do LaTeX:**
+   - Execute no terminal:
+   ```bash
+   latexmk --version
+   ```
+   - Se o comando funcionar, o LaTeX já está instalado (seja no container ou no host)
+   - Se retornar "comando não encontrado", o LaTeX não está disponível
