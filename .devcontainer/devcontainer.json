@@ -12,8 +12,33 @@
 			"extensions": [
 				"james-yu.latex-workshop",
 				"jebbs.plantuml"
-			]
+			],
+			"settings": {
+                "latex-workshop.latex.recipes": [
+                    {
+                        "name": "latexmk",
+                        "tools": [
+                            "latexmk"
+                        ]
+                    }
+                ],
+                "latex-workshop.latex.tools": [
+                    {
+                        "name": "latexmk",
+                        "command": "latexmk",
+                        "args": [
+                            "-synctex=1",
+                            "-interaction=nonstopmode",
+                            "-file-line-error",
+                            "-pdf",
+                            "%DOC%"
+                        ]
+                    }
+                ],
+                "latex-workshop.view.pdf.viewer": "tab",
+                "latex-workshop.latex.outDir": "%DIR%"
+            }
 		}
 	},
-	"postCreateCommand": "apt-get update && apt-get install -y texlive-full chktex latexmk graphviz plantuml"
+	"postCreateCommand": "apt-get update && apt-get install -y texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-publishers texlive-lang-portuguese texlive-bibtex-extra latexmk chktex graphviz plantuml && chmod +x ${containerWorkspaceFolder}/.devcontainer/setup-latex.sh && ${containerWorkspaceFolder}/.devcontainer/setup-latex.sh"
 }

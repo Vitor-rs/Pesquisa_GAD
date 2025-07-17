@@ -1,0 +1,21 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compilar LaTeX (TCC)",
+            "type": "shell",
+            "command": "cd ${workspaceFolder}/Template_de_TCC_IFMS_TADS && latexmk -synctex=1 -interaction=nonstopmode -file-line-error -pdf Monografia_config.tex",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Limpar arquivos temporários LaTeX",
+            "type": "shell",
+            "command": "cd ${workspaceFolder}/Template_de_TCC_IFMS_TADS && latexmk -C",
+            "problemMatcher": []
+        }
+    ]
+}

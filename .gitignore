@@ -98,6 +98,26 @@ dist
 # Sveltekit cache directory
 .svelte-kit/
 
+# LaTeX temporary files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.dvi
+*-blx.bib
+
+# LaTeX compiled output (optional, comment if you want to track PDFs)
+# *.pdf
+
 # vitepress build output
 **/.vitepress/dist
 
