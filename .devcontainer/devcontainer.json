@@ -1,11 +1,19 @@
 {
 	"image": "mcr.microsoft.com/devcontainers/universal:2",
 	"features": {
-		"ghcr.io/prulloac/devcontainer-features/latex:1": {},
 		"ghcr.io/devcontainers/features/java:1": {
 			"version": "21",
 			"installMaven": true,
 			"installGradle": false
 		}
-	}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"james-yu.latex-workshop",
+				"jebbs.plantuml"
+			]
+		}
+	},
+	"postCreateCommand": "apt-get update && apt-get install -y texlive-full chktex latexmk graphviz plantuml"
 }
