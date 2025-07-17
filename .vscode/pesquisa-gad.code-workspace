@@ -1,0 +1,35 @@
+{
+    "folders": [
+        {
+            "name": "📁 Pesquisa GAD - Workspace Principal",
+            "path": ".."
+        },
+        {
+            "name": "📄 TCC Template - Source Files",
+            "path": "../IFMS_TADS_TCC/src"
+        },
+        {
+            "name": "🔧 TCC Template - Build Output",
+            "path": "../IFMS_TADS_TCC/build"
+        },
+        {
+            "name": "📚 TCC Template - Resources",
+            "path": "../IFMS_TADS_TCC/resources"
+        }
+    ],
+    "settings": {
+        // Herdar todas as configurações do settings.json principal
+        "latex-workshop.latex.rootFile.doNotPrompt": true,
+        "latex-workshop.latex.rootFile.useSubFile": false,
+        "latex-workshop.message.error.show": true,
+        "latex-workshop.message.warning.show": true,
+        "latex-workshop.showContextMenu": true
+    },
+    "extensions": {
+        "recommendations": [
+            "james-yu.latex-workshop",
+            "ms-vscode.vscode-json",
+            "ms-vscode.vscode-typescript-next"
+        ]
+    }
+}

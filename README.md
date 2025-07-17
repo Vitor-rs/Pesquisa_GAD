@@ -57,7 +57,7 @@ O projeto inclui tarefas pré-configuradas:
 Execute o seguinte comando no terminal:
 
 ```bash
-cd Template_de_TCC_IFMS_TADS
+cd IFMS_TADS_TCC
 latexmk -pdf -interaction=nonstopmode -file-line-error Monografia_config.tex
 ```
 

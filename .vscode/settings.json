@@ -1,4 +1,5 @@
 {
+    // Java configuration
     "java.compile.nullAnalysis.mode": "automatic",
     "java.jdt.ls.java.home": "/usr/local/sdkman/candidates/java/21.0.7-ms",
     "java.configuration.runtimes": [
@@ -11,5 +12,121 @@
     "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx2G -Xms100m",
     "java.import.gradle.enabled": false,
     "java.import.maven.enabled": true,
-    "java.configuration.detectJdksAtStart": false
+    "java.configuration.detectJdksAtStart": false,
+    
+    // LaTeX Workshop configuration for IFMS_TADS_TCC
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    "latex-workshop.latex.autoClean.run": "onBuilt",
+    "latex-workshop.latex.outDir": "./IFMS_TADS_TCC/build",
+    "latex-workshop.latex.clean.subfolder.enabled": true,
+    "latex-workshop.latex.clean.fileTypes": [
+        "*.aux",
+        "*.bbl",
+        "*.blg",
+        "*.idx",
+        "*.ind",
+        "*.lof",
+        "*.lot",
+        "*.out",
+        "*.toc",
+        "*.acn",
+        "*.acr",
+        "*.alg",
+        "*.glg",
+        "*.glo",
+        "*.gls",
+        "*.fls",
+        "*.log",
+        "*.fdb_latexmk",
+        "*.snm",
+        "*.nav",
+        "*.vrb",
+        "*.bcf",
+        "*.run.xml",
+        "*.synctex.gz",
+        "*.brf",
+        "*.ilg"
+    ],
+    "latex-workshop.view.pdf.ref.viewer": "auto",
+    "latex-workshop.view.pdf.external.viewer.command": "code",
+    "latex-workshop.view.pdf.external.viewer.args": [
+        "%PDF%"
+    ],
+    "latex-workshop.synctex.afterBuild.enabled": true,
+    "latex-workshop.synctex.path": "synctex",
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk 🔃",
+            "tools": [
+                "latexmk"
+            ]
+        },
+        {
+            "name": "pdflatex ➞ bibtex ➞ pdflatex × 2",
+            "tools": [
+                "pdflatex",
+                "bibtex",
+                "pdflatex",
+                "pdflatex"
+            ]
+        }
+    ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=./IFMS_TADS_TCC/build",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-output-directory=./IFMS_TADS_TCC/build",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "./IFMS_TADS_TCC/build/%DOCFILE%"
+            ],
+            "env": {}
+        }
+    ],
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
+    "latex-workshop.latex.external.build.command": "latexmk",
+    "latex-workshop.latex.external.build.args": [
+        "-pdf",
+        "-interaction=nonstopmode", 
+        "-file-line-error",
+        "-outdir=./IFMS_TADS_TCC/build"
+    ],
+    
+    // File associations and nesting
+    "files.associations": {
+        "*.tex": "latex"
+    },
+    "latex-workshop.latex.rootFile.doNotPrompt": true,
+    "latex-workshop.latex.rootFile.useSubFile": false,
+    "latex-workshop.message.error.show": true,
+    "latex-workshop.message.warning.show": true,
+    "latex-workshop.showContextMenu": true,
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+        "*.tex": "${capture}.aux,${capture}.bbl,${capture}.blg,${capture}.fdb_latexmk,${capture}.fls,${capture}.log,${capture}.out,${capture}.synctex.gz,${capture}.toc,${capture}.lof,${capture}.lot,${capture}.idx,${capture}.ind,${capture}.ilg,${capture}.brf"
+    }
 }
