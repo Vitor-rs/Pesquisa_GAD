@@ -28,67 +28,33 @@
     ],
     "latex-workshop.latex.search.rootFiles.exclude": [
         "**/build/**",
-        "**/node_modules/**"
+        "**/node_modules/**",
+        "**/app/**"
     ],
-    "latex-workshop.latex.recipe.default": "latexmk (IFMS_TADS_TCC)",
+    "latex-workshop.latex.recipe.default": "latexmk (IFMS_TCC)",
     "latex-workshop.latex.autoBuild.interval": 1000,
     "latex-workshop.latex.clean.subfolder.enabled": true,
     "latex-workshop.latex.clean.fileTypes": [
-        "*.aux",
-        "*.bbl",
-        "*.blg",
-        "*.idx",
-        "*.ind",
-        "*.lof",
-        "*.lot",
-        "*.out",
-        "*.toc",
-        "*.acn",
-        "*.acr",
-        "*.alg",
-        "*.glg",
-        "*.glo",
-        "*.gls",
-        "*.fls",
-        "*.log",
-        "*.fdb_latexmk",
-        "*.snm",
-        "*.nav",
-        "*.vrb",
-        "*.bcf",
-        "*.run.xml",
-        "*.synctex.gz",
-        "*.brf",
-        "*.ilg"
+        "*.aux", "*.bbl", "*.blg", "*.idx", "*.ind", "*.lof", "*.lot", 
+        "*.out", "*.toc", "*.acn", "*.acr", "*.alg", "*.glg", "*.glo",
+        "*.gls", "*.fls", "*.log", "*.fdb_latexmk", "*.snm", "*.nav", 
+        "*.vrb", "*.bcf", "*.run.xml", "*.synctex.gz", "*.brf", "*.ilg"
     ],
     "latex-workshop.view.pdf.ref.viewer": "auto",
     "latex-workshop.view.pdf.external.viewer.command": "code",
-    "latex-workshop.view.pdf.external.viewer.args": [
-        "%PDF%"
-    ],
+    "latex-workshop.view.pdf.external.viewer.args": ["%PDF%"],
     "latex-workshop.synctex.afterBuild.enabled": true,
     "latex-workshop.synctex.path": "synctex",
+    
+    // LaTeX recipes and tools
     "latex-workshop.latex.recipes": [
         {
-            "name": "latexmk (IFMS_TADS_TCC)",
-            "tools": [
-                "latexmk-ifms"
-            ]
+            "name": "latexmk (IFMS_TCC)",
+            "tools": ["latexmk-ifms"]
         },
         {
-            "name": "latexmk (Auto)",
-            "tools": [
-                "latexmk-auto"
-            ]
-        },
-        {
-            "name": "pdflatex ➞ bibtex ➞ pdflatex × 2 (IFMS_TADS_TCC)",
-            "tools": [
-                "pdflatex-ifms",
-                "bibtex-ifms",
-                "pdflatex-ifms",
-                "pdflatex-ifms"
-            ]
+            "name": "pdflatex ➞ bibtex ➞ pdflatex × 2 (IFMS_TCC)",
+            "tools": ["pdflatex-ifms", "bibtex-ifms", "pdflatex-ifms", "pdflatex-ifms"]
         }
     ],
     "latex-workshop.latex.tools": [
@@ -103,21 +69,7 @@
                 "-pdf",
                 "-outdir=../build",
                 "%WORKSPACE_FOLDER%/IFMS_TADS_TCC/src/Monografia_config.tex"
-            ],
-            "env": {}
-        },
-        {
-            "name": "latexmk-auto",
-            "command": "latexmk",
-            "args": [
-                "-synctex=1",
-                "-interaction=nonstopmode",
-                "-file-line-error",
-                "-pdf",
-                "-outdir=%OUTDIR%",
-                "%DOC%"
-            ],
-            "env": {}
+            ]
         },
         {
             "name": "pdflatex-ifms",
@@ -128,16 +80,14 @@
                 "-file-line-error",
                 "-output-directory=%WORKSPACE_FOLDER%/IFMS_TADS_TCC/build",
                 "%WORKSPACE_FOLDER%/IFMS_TADS_TCC/src/Monografia_config.tex"
-            ],
-            "env": {}
+            ]
         },
         {
             "name": "bibtex-ifms",
             "command": "bibtex",
             "args": [
                 "%WORKSPACE_FOLDER%/IFMS_TADS_TCC/build/Monografia_config.aux"
-            ],
-            "env": {}
+            ]
         }
     ]
 }
